@@ -1,16 +1,16 @@
-edge(makkah, madinah).
-edge(makkah, riyadh).
-edge(madinah, makkah).
-edge(madinah, taif).
-edge(madinah, tabuk).
-edge(tabuk, taif).
-edge(taif, tabuk).
-edge(taif, dammam).
-edge(qatif, madinah).
-edge(qatif, dammam).
-edge(dammam, qatif).
-edge(dammam, riyadh).
-edge(riyadh, dammam).
+path(makkah, madinah).
+path(madinah, makkah).
+path(madinah, taif).
+path(madinah, tabuk).
+path(makkah, riyadh).
+path(tabuk, taif).
+path(taif, tabuk).
+path(taif, dammam).
+path(qatif, madinah).
+path(qatif, dammam).
+path(dammam, qatif).
+path(dammam, riyadh).
+path(riyadh, dammam).
 
 find_path(X, Y, Path) :-
     travel(X, Y, [X], ReversePath),
@@ -23,4 +23,3 @@ travel(X, Y, Visited, Result) :-
     path(X, Z),
     \+ member(Z, Visited),
     travel(Z, Y, [Z|Visited], Result).
-
